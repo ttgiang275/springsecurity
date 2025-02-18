@@ -11,8 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Student {
+
     @Id
     private Integer id;
+
     private String name;
+
     private Integer age;
+
 }
