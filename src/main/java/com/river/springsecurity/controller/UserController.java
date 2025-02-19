@@ -13,9 +13,13 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping(path = "/register")
+    @PostMapping(path = "register")
     public User register(@RequestBody User user) {
         return service.saveUser(user);
     }
 
+//    @ExceptionHandler(DataIntegrityViolationException.class)
+//    public ResponseEntity<String> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+//        return new ResponseEntity<>("Username already exists", HttpStatus.CONFLICT);
+//    }
 }

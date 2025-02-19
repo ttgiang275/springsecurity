@@ -9,15 +9,15 @@ public class HomeController {
 
     @GetMapping(path = "/")
     public String home(HttpServletRequest request) {
-        return "home" + request.getSession().getId();
+        return "home";
     }
 
-    @GetMapping(path = "/hello")
+    @GetMapping(path = "hello")
     public String hello() {
         return "hello";
     }
 
-    @GetMapping(path = "/about")
+    @GetMapping(path = "about")
     public String about() {
         return "about";
     }

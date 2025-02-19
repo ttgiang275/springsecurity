@@ -1,9 +1,9 @@
 package com.river.springsecurity.service;
 
-import com.river.springsecurity.exception.CustomValidationException;
 import com.river.springsecurity.model.User;
 import com.river.springsecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class UserService {
 
     public User saveUser(User user) {
         if (repository.findByUsername(user.getUsername()) != null) {
-            throw new CustomValidationException("User already exists");
+            throw new DataIntegrityViolationException("Username already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         System.out.println(user.getPassword());
